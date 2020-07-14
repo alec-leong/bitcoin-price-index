@@ -15,15 +15,6 @@ class CoinDesk {
   // Private instance and class properties.
   #startDate;
   #endDate;
-  #times = {
-    '1 day': 2,
-    '5 days': 5,
-    '1 month': 30,
-    '6 months': 180,
-    'YTD': Math.abs(Date.parse(moment.utc().format('YYYY-MM-DD')) - Date.parse(moment.utc().format('YYYY') + '-01-01')) * 10 ** -3 * (1 / 60) * (1 / 60) * (1 / 24), // year to date (YTD) in number of days
-    '1 year': 365,
-    '5 years': 365 * 5,
-  };
   static #scheme = 'https';
   static #domain = 'api.coindesk.com';
   static #path = 'v1/bpi/historical';
@@ -80,9 +71,6 @@ class CoinDesk {
    *  - Handle each error.
    */
   async insert() {
-    // Update year to date.
-    this.#times.YTD = Math.abs(Date.parse(moment.utc().format('YYYY-MM-DD')) - Date.parse(moment.utc().format('YYYY') + '-01-01')) * 10 ** -3 * (1 / 60) * (1 / 60) * (1 / 24);
-
     try {
       if (!this.#startDate) { // If startDate is falsey...
         await this.setStartDate();
@@ -164,30 +152,13 @@ class CoinDesk {
   }
 
   /**
-   * Execute select queries to initialize ChartJS data.
-   * @return {Object} An object representing a BPI market summary with keys ['1 day', '5 days', '1 month', '6 months', 'YTD', '1 year', '5 years', 'Max']
-   * and values representating an array of points, e.g. [ { x: '2013-09-01', y: '128.2597' }, { x: '2013-09-02', y: '127.2597' } ].
+   * Execute select query to read all bitcoin price indices to initialize ChartJS data.
+   * @return {Array} An array of objects representing a bitcoin price index market summary.
+   * Each object represents a point with keys ['x', 'y'] where 'x' denotes date (YYYY-MM-DD) and 'y' denotes price (Number).
+   * E.g. [ { x: '2013-09-01', y: '128.2597' }, { x: '2013-09-02', y: '127.2597' } ].
    */
   async bpi () {
-    const data = await Object.entries(this.#times).reduce(async (accumulator, [time, value]) => {
-      // Sort by oldest date to most recent date.
-      const command = `SELECT date AS x, price as y FROM (SELECT * FROM bitcoin ORDER BY date DESC LIMIT ${value}) AS sorted ORDER BY date ASC;`;
-      const results = await sequelize.query(command, CoinDesk.#queryOptions.select);
-  
-      if (results.length) {
-        (await accumulator)[time] = results;
-      }
-  
-      return accumulator;
-    }, {});
-  
-    // Initialize 'Max' key-value pair
-    const all = await sequelize.query('SELECT date AS x, price as y FROM bitcoin', CoinDesk.#queryOptions.select);
-  
-    if (all.length) {
-      data.Max = all;
-    }
-  
+    const data = await sequelize.query('SELECT date AS x, price as y FROM bitcoin', CoinDesk.#queryOptions.select);
     return data;
   }
 
