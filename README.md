@@ -11,26 +11,26 @@
     - [Logger](#logger)
 2. [Getting Started](#getting-started)
     1. [Development Mode](#1-development-mode)
-      1. [Install dependencies and development dependencies](#11-install-dependencies-and-development-dependencies)
-      2. [Populate PostgreSQL database](#12-populate-postgresql-database)
-      3. [Start webpack](#13-start-webpack)
-      4. [Open a new terminal](#14-open-a-new-terminal)
-      5. [Start Express.js server](#15-start-expressjs-server)
-      6. [Now visit _http://localhost:3000/_ to see the React application](#16-now-visit-httplocalhost3000-to-see-the-react-application)
+        1. [Install dependencies and development dependencies](#11-install-dependencies-and-development-dependencies)
+        2. [Populate PostgreSQL database](#12-populate-postgresql-database)
+        3. [Start webpack](#13-start-webpack)
+        4. [Open a new terminal](#14-open-a-new-terminal)
+        5. [Start Express.js server](#15-start-expressjs-server)
+        6. [Now visit _http://localhost:3000/_ to see the React application](#16-now-visit-httplocalhost3000-to-see-the-react-application)
     2. [Production Mode](#2-production-mode)
-      1. [Configure Environment Variables _.env_ File](#21-configure-environment-variables-env-file)
-      2. [Install dependencies and development dependencies](#22-install-dependencies-and-development-dependencies)
-      3. [Populate PostgreSQL database](#23-populate-postgresql-database)
-      4. [Start webpack](#24-start-webpack)
-      5. [Start Express.js server](#25-start-expressjs-server)
+        1. [Configure Environment Variables _.env_ File](#21-configure-environment-variables-env-file)
+        2. [Install dependencies and development dependencies](#22-install-dependencies-and-development-dependencies)
+        3. [Populate PostgreSQL database](#23-populate-postgresql-database)
+        4. [Start webpack](#24-start-webpack)
+        5. [Start Express.js server](#25-start-expressjs-server)
 3. [System Design](#system-design)
     1. [Database - PostgreSQL vs MongoDB](#1-development-mode)
-      1. [Seed](#11-seed)
-      2. [Schema](#12-schema)
-      3. [Search Queries](#13-search-queries)
-      4. [Execution Times](#14-execution-times)
-      5. [Decision](#15-decision)
-      6. [Reason](#16-reason)
+        1. [Seed](#11-seed)
+        2. [Schema](#12-schema)
+        3. [Search Queries](#13-search-queries)
+        4. [Execution Times](#14-execution-times)
+        5. [Decision](#15-decision)
+        6. [Reason](#16-reason)
 
 ---
 
@@ -61,16 +61,16 @@
 ### Database
 
 1. Type
-  - Structured Query Language (SQL)
+    - Structured Query Language (SQL)
 2. Relational Database Management System (RDMS)
-  - PostgreSQL
-    1. Database Name
-      - cryptocurrency
-    2. Table Name
-      - bitcoin
-    3. Fields
-      - date
-      - price
+    - PostgreSQL
+        1. Database Name
+            - cryptocurrency
+        2. Table Name
+            - bitcoin
+        3. Fields
+            - date
+            - price
 
 ### Server
 
