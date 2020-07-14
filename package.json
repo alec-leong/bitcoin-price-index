@@ -46,6 +46,7 @@
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "sequelize": "^6.2.3",
+    "spdy": "^4.0.2",
     "winston": "^3.3.3",
     "winston-daily-rotate-file": "^4.5.0"
   },
