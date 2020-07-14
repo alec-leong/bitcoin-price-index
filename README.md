@@ -306,7 +306,7 @@
 
 ###### &ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;Returns: _JSON_
 
-```json
+```javascript
             [
                 {
                     "x": "String",
