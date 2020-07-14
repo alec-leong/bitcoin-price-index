@@ -4,6 +4,7 @@ const cors = require('cors');
 const express = require('express');
 const morgan = require('morgan');
 const path = require('path');
+const spdy = require('spdy');
 const logger = require('../logger/index.js');
 const transport = require('../logger/transport.js');
 const morganConfig = require('./morgan.config.js');
@@ -44,12 +45,32 @@ app.get('/bpi', async (req, res) => {
   }
 });
 
-app.listen(port, logger.info(`ExpressJS server listening on port ${port}`, {
-  type: 'app',
-  file: relativePath,
-  timestamp: new Date().toUTCString(),
-  pid: process.pid,
-}));
+// ExpressJS application and SPDY server
+spdy
+  .createServer({
+    spdy: { // HTTP enabled
+      plain: true,
+      ssl: false,
+    },
+  }, app)
+  .listen(port, (err) => {
+    if (err) {
+      logger.error(err, {
+        type: 'app',
+        file: relativePath,
+        timestamp: new Date().toUTCString(),
+        pid: process.pid,
+      });
+      process.exit(1);
+    } else {
+      logger.info(`SPDY server listening on port ${port}`, {
+        type: 'app',
+        file: relativePath,
+        timestamp: new Date().toUTCString(),
+        pid: process.pid,
+      });
+    }
+  });
 
 transport.on('new', async () => {
   await coinDesk.insert();
