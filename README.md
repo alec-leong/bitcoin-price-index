@@ -3,6 +3,7 @@
 ## Table of Contents
 
 1. [About](#about)
+    - [Demo](#demo)
     - [Main Development Dependencies](#main-development-dependencies)
     - [System Requirements](#system-requirements)
     - [Technologies](#technologies)
@@ -38,6 +39,10 @@
 ---
 
 ## About
+
+### Demo
+
+![Demo](demo.gif)
 
 ### Main Development Dependencies
 
