@@ -4,6 +4,7 @@
 
 1. [About](#about)
     - [Main Development Dependencies](#main-development-dependencies)
+    - [System Requirements](#system-requirements)
     - [Technologies](#technologies)
     - [Client](#client)
     - [Database](#database)
@@ -31,6 +32,8 @@
         4. [Execution Times](#14-execution-times)
         5. [Decision](#15-decision)
         6. [Reason](#16-reason)
+    2. [Server API](#2-server-api)
+        1. [GET _/bpi_](#21-get-bpi)
 
 ---
 
@@ -43,6 +46,14 @@
 | @babel        | 7       |
 | react         | 16      |
 | webpack       | 4       |
+
+### System Requirements
+
+| Software   | Version   |
+| ---------- | --------- |
+| node       | >= 12.0.0 |
+| npm        | >= 6.0.0  |
+| PostgreSQL | >= 9.5    |
 
 ### Technologies
 
@@ -222,7 +233,7 @@
 
 ### 1. Database - PostgreSQL vs MongoDB
 
-#### &ensp;&ensp;&ensp;&ensp;1.1 Seed
+#### &ensp;&ensp;&ensp;&ensp;1.1. Seed
 
 ##### &ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;i. PostgreSQL and Sequelize Seed
 
@@ -284,3 +295,29 @@
 #### &ensp;&ensp;&ensp;&ensp;1.6. Reason
 
 &ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&#8226; Faster search query execution time to read all bitcoin price indices.
+
+### 2. Server API
+
+#### &ensp;&ensp;&ensp;&ensp;2.1. GET _/bpi_
+
+##### &ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;i. Get all bitcoin price indices from 2013-09-01 (_YYYY-MM-DD_) to present
+
+###### &ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;Success Status Code: _200_
+
+###### &ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;Returns: _JSON_
+
+```json
+            [
+                {
+                    "x": "String",
+                    "y": "Number"
+                },
+                {
+                    "x": "String",
+                    "y": "Number"
+                },
+                .
+                .
+                .
+            ]
+```
