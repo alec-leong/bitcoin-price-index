@@ -76,17 +76,43 @@
 
 ### Database
 
-1. Type
-    - Structured Query Language (SQL)
-2. Relational Database Management System (RDMS)
-    - PostgreSQL
-        1. Database Name
-            - cryptocurrency
-        2. Table Name
-            - bitcoin
-        3. Fields
-            - date
-            - price
+<ol>
+    <li>Type
+        <ul>
+            <li>Structured Query Language (SQL)</li>
+        </ul>
+    </li>
+    <li>Relational Database Management System (RDMS)
+        <ul>
+            <li>PostgreSQL
+                <ul>
+                    <li>Database Name(s)
+                        <ol>
+                            <li type="I"><b><i>cryptocurrency</i></b>
+                                <ul>
+                                    <li>Table Name(s)
+                                        <ol>
+                                            <li><i><b>bitcoin</b></i>
+                                                <ul>
+                                                    <li>Fields
+                                                        <ol>
+                                                            <li type="i"><b><i>date</b></i></li>
+                                                            <li type="i"><b><i>price</b></i></li>
+                                                        <ol>
+                                                    </li>
+                                                </ul>
+                                            </li>
+                                        </ol>
+                                    </li>
+                                </ul>
+                            </li>
+                        </ol>
+                    </li>
+                <ul>
+            </li>
+        </ul>
+    </li>
+</ol>
 
 ### Server
 
