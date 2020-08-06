@@ -26,7 +26,7 @@
         4. [Start webpack](#24-start-webpack)
         5. [Start Express.js server](#25-start-expressjs-server)
 3. [System Design](#system-design)
-    1. [Database - PostgreSQL vs MongoDB](#1-development-mode)
+    1. [Database - PostgreSQL vs MongoDB](#1-database---postgresql-vs-mongodb)
         1. [Seed](#11-seed)
         2. [Schema](#12-schema)
         3. [Search Queries](#13-search-queries)
